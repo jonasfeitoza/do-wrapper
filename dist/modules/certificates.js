@@ -34,7 +34,7 @@ var Certificates = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'certificates';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -75,7 +75,7 @@ var Certificates = /** @class */ (function (_super) {
      */
     Certificates.prototype.getById = function (certificateId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(certificateId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(certificateId)),
         });
     };
     /**
@@ -85,7 +85,7 @@ var Certificates = /** @class */ (function (_super) {
      */
     Certificates.prototype.delete = function (certificateId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(certificateId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(certificateId)),
             method: common_1.HttpMethods.DELETE,
         });
     };

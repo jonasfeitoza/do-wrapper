@@ -34,7 +34,7 @@ var Volumes = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'volumes';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -63,7 +63,7 @@ var Volumes = /** @class */ (function (_super) {
      */
     Volumes.prototype.getById = function (volumeId) {
         return this._execute({
-            actionPath: this.basePath + "/" + volumeId,
+            actionPath: "".concat(this.basePath, "/").concat(volumeId),
         });
     };
     /**
@@ -85,7 +85,7 @@ var Volumes = /** @class */ (function (_super) {
      */
     Volumes.prototype.deleteById = function (volumeId) {
         return this._execute({
-            actionPath: this.basePath + "/" + volumeId,
+            actionPath: "".concat(this.basePath, "/").concat(volumeId),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -109,7 +109,7 @@ var Volumes = /** @class */ (function (_super) {
      */
     Volumes.prototype.requestAction = function (volumeId, action) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(volumeId) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(volumeId), "/actions"),
             method: common_1.HttpMethods.POST,
             body: action,
         });
@@ -121,7 +121,7 @@ var Volumes = /** @class */ (function (_super) {
      */
     Volumes.prototype.getSnapshots = function (volumeId) {
         return this._execute({
-            actionPath: this.basePath + "/" + volumeId + "/snapshots",
+            actionPath: "".concat(this.basePath, "/").concat(volumeId, "/snapshots"),
         });
     };
     /**
@@ -132,7 +132,7 @@ var Volumes = /** @class */ (function (_super) {
      */
     Volumes.prototype.createSnapshot = function (volumeId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + volumeId + "/snapshots",
+            actionPath: "".concat(this.basePath, "/").concat(volumeId, "/snapshots"),
             method: common_1.HttpMethods.POST,
             body: options,
         });

@@ -24,7 +24,7 @@ var RequestHelper = /** @class */ (function () {
      */
     function RequestHelper(token) {
         this.headers = {
-            'authorization': "Bearer " + token,
+            'authorization': "Bearer ".concat(token),
             'content_type': 'application/json'
         };
         this.apiUrl = 'https://api.digitalocean.com/v2/';
@@ -56,7 +56,7 @@ var RequestHelper = /** @class */ (function () {
      */
     RequestHelper.prototype.submitRequest = function (options, callback) {
         var requestOptions = this.requestBuilder(options);
-        got_1.default(this.apiUrl + options.actionPath, requestOptions)
+        (0, got_1.default)(this.apiUrl + options.actionPath, requestOptions)
             .then(function (response) {
             callback(response.statusCode === 204 ? null : JSON.parse(response.body), null);
         })

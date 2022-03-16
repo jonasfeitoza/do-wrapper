@@ -34,7 +34,7 @@ var FloatingIPs = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'floating_ips';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -80,7 +80,7 @@ var FloatingIPs = /** @class */ (function (_super) {
      */
     FloatingIPs.prototype.getByIp = function (ipAddress) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(ipAddress),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(ipAddress)),
         });
     };
     /**
@@ -90,7 +90,7 @@ var FloatingIPs = /** @class */ (function (_super) {
      */
     FloatingIPs.prototype.deleteByIp = function (ipAddress) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(ipAddress),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(ipAddress)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -102,7 +102,7 @@ var FloatingIPs = /** @class */ (function (_super) {
      */
     FloatingIPs.prototype.requestAction = function (ipAddress, action) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(ipAddress) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(ipAddress), "/actions"),
             method: common_1.HttpMethods.POST,
             body: action,
         });
@@ -115,7 +115,7 @@ var FloatingIPs = /** @class */ (function (_super) {
      */
     FloatingIPs.prototype.getAction = function (ipAddress, actionId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(ipAddress) + "/actions/" + encodeURIComponent(actionId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(ipAddress), "/actions/").concat(encodeURIComponent(actionId)),
         });
     };
     /**
@@ -132,7 +132,7 @@ var FloatingIPs = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(ipAddress) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(ipAddress), "/actions"),
             key: 'actions',
             tagName: tagName,
             pageSize: pageSize,

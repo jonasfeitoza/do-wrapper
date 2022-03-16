@@ -34,7 +34,7 @@ var Projects = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'projects';
         _this.baseOptions = {
-            actionPath: "" + _this.basePath,
+            actionPath: "".concat(_this.basePath),
         };
         return _this;
     }
@@ -67,7 +67,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.getById = function (projectId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(projectId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(projectId)),
         });
     };
     /**
@@ -78,7 +78,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.update = function (projectId, projectOptions) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(projectId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(projectId)),
             method: common_1.HttpMethods.PUT,
             body: projectOptions,
         });
@@ -91,7 +91,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.patch = function (projectId, projectOptions) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(projectId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(projectId)),
             method: common_1.HttpMethods.PATCH,
             body: projectOptions,
         });
@@ -103,7 +103,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.getResources = function (projectId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(projectId) + "/resources",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(projectId), "/resources"),
         });
     };
     /**
@@ -114,7 +114,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.addResources = function (projectId, resources) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(projectId) + "/resources",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(projectId), "/resources"),
             method: common_1.HttpMethods.POST,
             body: {
                 resources: resources,
@@ -127,7 +127,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.getDefault = function () {
         return this._execute({
-            actionPath: this.basePath + "/default",
+            actionPath: "".concat(this.basePath, "/default"),
         });
     };
     /**
@@ -136,7 +136,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.getDefaultResources = function () {
         return this._execute({
-            actionPath: this.basePath + "/default/resources",
+            actionPath: "".concat(this.basePath, "/default/resources"),
         });
     };
     /**
@@ -146,7 +146,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.addDefaultResources = function (resources) {
         return this._execute({
-            actionPath: this.basePath + "/default/resources",
+            actionPath: "".concat(this.basePath, "/default/resources"),
             method: common_1.HttpMethods.POST,
             body: {
                 resources: resources,
@@ -160,7 +160,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.updateDefault = function (projectOptions) {
         return this._execute({
-            actionPath: this.basePath + "/default",
+            actionPath: "".concat(this.basePath, "/default"),
             method: common_1.HttpMethods.PUT,
             body: projectOptions,
         });
@@ -172,7 +172,7 @@ var Projects = /** @class */ (function (_super) {
      */
     Projects.prototype.patchDefault = function (projectOptions) {
         return this._execute({
-            actionPath: this.basePath + "/default",
+            actionPath: "".concat(this.basePath, "/default"),
             method: common_1.HttpMethods.PATCH,
             body: projectOptions,
         });

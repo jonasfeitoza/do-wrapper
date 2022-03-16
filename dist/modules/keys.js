@@ -34,7 +34,7 @@ var Keys = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'account/keys';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -67,7 +67,7 @@ var Keys = /** @class */ (function (_super) {
      */
     Keys.prototype.getById = function (keyId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(keyId)
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(keyId))
         });
     };
     /**
@@ -77,7 +77,7 @@ var Keys = /** @class */ (function (_super) {
      */
     Keys.prototype.getByFingerprint = function (fingerprint) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(fingerprint)
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(fingerprint))
         });
     };
     /**
@@ -97,7 +97,7 @@ var Keys = /** @class */ (function (_super) {
      */
     Keys.prototype.rename = function (identifier, newName) {
         var requestOptions = {
-            actionPath: this.basePath + "/" + encodeURIComponent(identifier),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(identifier)),
             method: common_1.HttpMethods.PUT,
             body: {
                 name: newName,
@@ -112,7 +112,7 @@ var Keys = /** @class */ (function (_super) {
      */
     Keys.prototype.delete = function (identifier) {
         var requestOptions = {
-            actionPath: this.basePath + "/" + encodeURIComponent(identifier),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(identifier)),
             method: common_1.HttpMethods.DELETE,
         };
         return this._execute(requestOptions);

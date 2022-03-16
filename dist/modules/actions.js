@@ -52,7 +52,7 @@ var Actions = /** @class */ (function (_super) {
      */
     Actions.prototype.getById = function (actionId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(actionId)
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(actionId))
         });
     };
     return Actions;

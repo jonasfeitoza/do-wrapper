@@ -61,7 +61,7 @@ var Snapshots = /** @class */ (function (_super) {
      */
     Snapshots.prototype.getById = function (snapshotId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(snapshotId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(snapshotId)),
         });
     };
     /**
@@ -105,7 +105,7 @@ var Snapshots = /** @class */ (function (_super) {
      */
     Snapshots.prototype.deleteById = function (snapshotId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(snapshotId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(snapshotId)),
             method: common_1.HttpMethods.DELETE,
         });
     };

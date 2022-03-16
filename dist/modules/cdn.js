@@ -54,7 +54,7 @@ var CDN = /** @class */ (function (_super) {
      */
     CDN.prototype.getEndpointById = function (endpointId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(endpointId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(endpointId)),
         });
     };
     /**
@@ -83,7 +83,7 @@ var CDN = /** @class */ (function (_super) {
      */
     CDN.prototype.updateEndpointTtl = function (endpointId, ttl) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(endpointId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(endpointId)),
             method: common_1.HttpMethods.PUT,
             body: {
                 ttl: ttl,
@@ -97,7 +97,7 @@ var CDN = /** @class */ (function (_super) {
      */
     CDN.prototype.deleteEndpoint = function (endpointId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(endpointId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(endpointId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -110,7 +110,7 @@ var CDN = /** @class */ (function (_super) {
      */
     CDN.prototype.purgeEndpointCache = function (endpointId, fileNames) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(endpointId) + "/cache",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(endpointId), "/cache"),
             method: common_1.HttpMethods.DELETE,
             body: {
                 files: fileNames,

@@ -34,7 +34,7 @@ var Kubernetes = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'kubernetes/clusters';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -76,7 +76,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.getById = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId)),
         });
     };
     /**
@@ -86,7 +86,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.getKubeconfig = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/kubeconfig",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/kubeconfig"),
         });
     };
     /**
@@ -96,7 +96,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.delete = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -113,7 +113,7 @@ var Kubernetes = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools"),
             key: 'kubernetes',
             pageSize: pageSize,
             page: page,
@@ -129,7 +129,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.getNodePoolById = function (clusterId, nodePoolId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools/" + encodeURIComponent(nodePoolId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools/").concat(encodeURIComponent(nodePoolId)),
         });
     };
     /**
@@ -140,7 +140,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.addNodePool = function (clusterId, nodePool) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools"),
             method: common_1.HttpMethods.POST,
             body: nodePool,
         });
@@ -154,7 +154,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.updateNodePool = function (clusterId, nodePoolId, nodePoolOptions) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools/" + encodeURIComponent(nodePoolId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools/").concat(encodeURIComponent(nodePoolId)),
             method: common_1.HttpMethods.PUT,
             body: nodePoolOptions,
         });
@@ -167,7 +167,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.deleteNodePool = function (clusterId, nodePoolId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools/" + encodeURIComponent(nodePoolId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools/").concat(encodeURIComponent(nodePoolId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -179,7 +179,7 @@ var Kubernetes = /** @class */ (function (_super) {
      */
     Kubernetes.prototype.recycleNodePool = function (clusterId, nodePoolId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/node_pools/" + encodeURIComponent(nodePoolId) + "/recycle",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/node_pools/").concat(encodeURIComponent(nodePoolId), "/recycle"),
             method: common_1.HttpMethods.POST,
         });
     };

@@ -60,7 +60,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.getById = function (loadBalancerId) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId,
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId),
         });
     };
     /**
@@ -71,7 +71,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.update = function (loadBalancerId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId,
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId),
             method: common_1.HttpMethods.PUT,
             body: options,
         });
@@ -83,7 +83,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.delete = function (loadBalancerId) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId,
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -95,7 +95,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.addDroplets = function (loadBalancerId, dropletIds) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId + "/droplets",
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId, "/droplets"),
             method: common_1.HttpMethods.POST,
             body: {
                 droplet_ids: dropletIds,
@@ -110,7 +110,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.removeDroplets = function (loadBalancerId, dropletIds) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId + "/droplets",
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId, "/droplets"),
             method: common_1.HttpMethods.DELETE,
             body: {
                 droplet_ids: dropletIds,
@@ -125,7 +125,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.addForwardingRules = function (loadBalancerId, rules) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId + "/forwarding_rules",
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId, "/forwarding_rules"),
             method: common_1.HttpMethods.POST,
             body: {
                 forwarding_rules: rules,
@@ -140,7 +140,7 @@ var LoadBalancers = /** @class */ (function (_super) {
      */
     LoadBalancers.prototype.removeForwardingRules = function (loadBalancerId, rules) {
         return this._execute({
-            actionPath: this.basePath + "/" + loadBalancerId + "/forwarding_rules",
+            actionPath: "".concat(this.basePath, "/").concat(loadBalancerId, "/forwarding_rules"),
             method: common_1.HttpMethods.DELETE,
             body: {
                 forwarding_rules: rules,

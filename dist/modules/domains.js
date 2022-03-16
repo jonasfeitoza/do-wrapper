@@ -34,7 +34,7 @@ var Domains = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'domains';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -68,7 +68,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.getByName = function (domainName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName)),
         });
     };
     /**
@@ -78,7 +78,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.delete = function (domainName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -96,7 +96,7 @@ var Domains = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName) + "/records",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName), "/records"),
             key: 'domain_records',
             tagName: tagName,
             pageSize: pageSize,
@@ -113,7 +113,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.createRecord = function (domainName, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName) + "/records",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName), "/records"),
             method: common_1.HttpMethods.POST,
             body: options,
         });
@@ -126,7 +126,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.getRecord = function (domainName, recordId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName) + "/records/" + encodeURIComponent(recordId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName), "/records/").concat(encodeURIComponent(recordId)),
         });
     };
     /**
@@ -137,7 +137,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.deleteRecord = function (domainName, recordId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName) + "/records/" + encodeURIComponent(recordId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName), "/records/").concat(encodeURIComponent(recordId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -150,7 +150,7 @@ var Domains = /** @class */ (function (_super) {
      */
     Domains.prototype.updateRecord = function (domainName, recordId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(domainName) + "/records/" + encodeURIComponent(recordId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(domainName), "/records/").concat(encodeURIComponent(recordId)),
             method: common_1.HttpMethods.PUT,
             body: options,
         });

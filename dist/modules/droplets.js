@@ -34,7 +34,7 @@ var Droplets = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'droplets';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -67,7 +67,7 @@ var Droplets = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/kernels",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/kernels"),
             key: 'kernels',
             tagName: tagName,
             pageSize: pageSize,
@@ -90,7 +90,7 @@ var Droplets = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/snapshots",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/snapshots"),
             key: 'snapshots',
             tagName: tagName,
             pageSize: pageSize,
@@ -113,7 +113,7 @@ var Droplets = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/backups",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/backups"),
             key: 'backups',
             tagName: tagName,
             pageSize: pageSize,
@@ -136,7 +136,7 @@ var Droplets = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/actions"),
             key: 'actions',
             tagName: tagName,
             pageSize: pageSize,
@@ -160,7 +160,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.getById = function (dropletId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId)),
         });
     };
     /**
@@ -170,7 +170,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.deleteById = function (dropletId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -191,7 +191,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.getNeighbors = function (dropletId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/neighbors",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/neighbors"),
         });
     };
     /**
@@ -211,7 +211,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.requestAction = function (dropletId, action) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/actions"),
             method: common_1.HttpMethods.POST,
             body: action,
         });
@@ -224,7 +224,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.requestActionByTag = function (tagName, action) {
         return this._execute({
-            actionPath: this.basePath + "/actions",
+            actionPath: "".concat(this.basePath, "/actions"),
             method: common_1.HttpMethods.POST,
             qs: {
                 tag_name: tagName,
@@ -240,7 +240,7 @@ var Droplets = /** @class */ (function (_super) {
      */
     Droplets.prototype.getAction = function (dropletId, actionId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(dropletId) + "/actions/" + encodeURIComponent(actionId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(dropletId), "/actions/").concat(encodeURIComponent(actionId)),
         });
     };
     return Droplets;

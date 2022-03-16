@@ -23,7 +23,7 @@ var Images = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'images';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -56,7 +56,7 @@ var Images = /** @class */ (function (_super) {
      */
     Images.prototype.getByIdOrSlug = function (imageIdOrSlug) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageIdOrSlug),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageIdOrSlug)),
         });
     };
     /**
@@ -66,7 +66,7 @@ var Images = /** @class */ (function (_super) {
      */
     Images.prototype.deleteById = function (imageId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -78,7 +78,7 @@ var Images = /** @class */ (function (_super) {
      */
     Images.prototype.rename = function (imageId, newName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageId)),
             method: common_1.HttpMethods.PUT,
             body: {
                 name: newName,
@@ -98,7 +98,7 @@ var Images = /** @class */ (function (_super) {
         if (page === void 0) { page = 1; }
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageId) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageId), "/actions"),
             key: 'actions',
             pageSize: pageSize,
             page: page,
@@ -114,7 +114,7 @@ var Images = /** @class */ (function (_super) {
      */
     Images.prototype.getActionById = function (imageId, actionId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageId) + "/actions/" + encodeURIComponent(actionId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageId), "/actions/").concat(encodeURIComponent(actionId)),
         });
     };
     /**
@@ -125,7 +125,7 @@ var Images = /** @class */ (function (_super) {
      */
     Images.prototype.requestAction = function (imageId, action) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(imageId) + "/actions",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(imageId), "/actions"),
             method: common_1.HttpMethods.POST,
             body: action,
         });

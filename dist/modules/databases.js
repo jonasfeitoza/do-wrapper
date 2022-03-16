@@ -21,7 +21,7 @@ var Databases = /** @class */ (function (_super) {
     __extends(Databases, _super);
     function Databases(pageSize, requestHelper) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
-        _this.basePath = 'databases';
+        _this.basePath = "databases";
         return _this;
     }
     /**
@@ -38,7 +38,7 @@ var Databases = /** @class */ (function (_super) {
         if (pageSize === void 0) { pageSize = this.pageSize; }
         var requestOptions = this._getBasePaginatedRequestOptions({
             actionPath: this.basePath,
-            key: 'databases',
+            key: "databases",
             tagName: tagName,
             pageSize: pageSize,
             page: page,
@@ -65,7 +65,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.getClusterById = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId)),
         });
     };
     /**
@@ -75,7 +75,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.resizeCluster = function (clusterId, configuration) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/resize",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/resize"),
             method: common_1.HttpMethods.PUT,
             body: configuration,
         });
@@ -88,7 +88,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.createUser = function (clusterId, username) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/users",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/users"),
             method: common_1.HttpMethods.POST,
             body: {
                 name: username,
@@ -102,7 +102,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.deleteUser = function (clusterId, username) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/users/" + encodeURIComponent(username),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/users/").concat(encodeURIComponent(username)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -113,7 +113,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.getUser = function (clusterId, username) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/users/" + encodeURIComponent(username),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/users/").concat(encodeURIComponent(username)),
         });
     };
     /**
@@ -122,7 +122,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.getAllUsers = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/users",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/users"),
         });
     };
     /**
@@ -133,7 +133,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.addPool = function (clusterId, poolOptions) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/pools",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/pools"),
             method: common_1.HttpMethods.POST,
             body: poolOptions,
         });
@@ -145,7 +145,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.getAllPools = function (clusterId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/pools",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/pools"),
         });
     };
     /**
@@ -156,7 +156,7 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.getPool = function (clusterId, poolName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/pools/" + encodeURIComponent(poolName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/pools/").concat(encodeURIComponent(poolName)),
         });
     };
     /**
@@ -167,7 +167,54 @@ var Databases = /** @class */ (function (_super) {
      */
     Databases.prototype.deletePool = function (clusterId, poolName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(clusterId) + "/pools/" + encodeURIComponent(poolName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/pools/").concat(encodeURIComponent(poolName)),
+            method: common_1.HttpMethods.DELETE,
+        });
+    };
+    /**
+     * Get all Databases of a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @returns Promise
+     */
+    Databases.prototype.getAllDatabases = function (clusterId) {
+        return this._execute({
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/dbs"),
+        });
+    };
+    /**
+     * Create a new Database on a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @param dbName the database name
+     * @returns Promise
+     */
+    Databases.prototype.addDatabase = function (clusterId, dbName) {
+        return this._execute({
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/dbs"),
+            method: common_1.HttpMethods.POST,
+            body: {
+                name: dbName,
+            },
+        });
+    };
+    /**
+     * Get a Database from a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @param dbName the name of the Database
+     * @returns Promise
+     */
+    Databases.prototype.getDatabase = function (clusterId, dbName) {
+        return this._execute({
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/dbs/").concat(encodeURIComponent(dbName)),
+        });
+    };
+    /**
+     * Delete a Database from a existing Database Cluster
+     * @param clusterId the identifier of the Database Cluster
+     * @param dbName the name of the Database to delete
+     */
+    Databases.prototype.deleteDatabase = function (clusterId, dbName) {
+        return this._execute({
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(clusterId), "/dbs/").concat(encodeURIComponent(dbName)),
             method: common_1.HttpMethods.DELETE,
         });
     };

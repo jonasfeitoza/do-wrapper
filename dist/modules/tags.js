@@ -70,7 +70,7 @@ var Tags = /** @class */ (function (_super) {
      */
     Tags.prototype.getByName = function (tagName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(tagName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(tagName)),
         });
     };
     /**
@@ -80,7 +80,7 @@ var Tags = /** @class */ (function (_super) {
      */
     Tags.prototype.delete = function (tagName) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(tagName),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(tagName)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -92,7 +92,7 @@ var Tags = /** @class */ (function (_super) {
      */
     Tags.prototype.addResources = function (tagName, resources) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(tagName) + "/resources",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(tagName), "/resources"),
             method: common_1.HttpMethods.POST,
             body: resources,
         });
@@ -105,7 +105,7 @@ var Tags = /** @class */ (function (_super) {
      */
     Tags.prototype.removeResources = function (tagName, resources) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(tagName) + "/resources",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(tagName), "/resources"),
             method: common_1.HttpMethods.DELETE,
             body: resources,
         });

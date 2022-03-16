@@ -34,7 +34,7 @@ var Firewalls = /** @class */ (function (_super) {
         var _this = _super.call(this, pageSize, requestHelper) || this;
         _this.basePath = 'firewalls';
         _this.baseOptions = {
-            actionPath: _this.basePath + "/",
+            actionPath: "".concat(_this.basePath, "/"),
         };
         return _this;
     }
@@ -53,7 +53,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.delete = function (firewallId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId)),
             method: common_1.HttpMethods.DELETE,
         });
     };
@@ -64,7 +64,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.getById = function (firewallId) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId)),
         });
     };
     /**
@@ -84,7 +84,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.update = function (firewallId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId),
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId)),
             method: common_1.HttpMethods.PUT,
             body: options,
         });
@@ -97,7 +97,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.addDroplets = function (firewallId, dropletIds) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/droplets",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/droplets"),
             method: common_1.HttpMethods.POST,
             body: {
                 droplet_ids: dropletIds,
@@ -112,7 +112,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.removeDroplets = function (firewallId, dropletIds) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/droplets",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/droplets"),
             method: common_1.HttpMethods.DELETE,
             body: {
                 droplet_ids: dropletIds,
@@ -127,7 +127,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.addTags = function (firewallId, tags) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/tags",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/tags"),
             method: common_1.HttpMethods.POST,
             body: {
                 tags: tags,
@@ -142,7 +142,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.removeTags = function (firewallId, tags) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/tags",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/tags"),
             method: common_1.HttpMethods.DELETE,
             body: {
                 tags: tags,
@@ -157,7 +157,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.addRules = function (firewallId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/rules",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/rules"),
             method: common_1.HttpMethods.POST,
             body: options,
         });
@@ -170,7 +170,7 @@ var Firewalls = /** @class */ (function (_super) {
      */
     Firewalls.prototype.removeRules = function (firewallId, options) {
         return this._execute({
-            actionPath: this.basePath + "/" + encodeURIComponent(firewallId) + "/rules",
+            actionPath: "".concat(this.basePath, "/").concat(encodeURIComponent(firewallId), "/rules"),
             method: common_1.HttpMethods.DELETE,
             body: options,
         });

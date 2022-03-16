@@ -82,4 +82,30 @@ export default class Databases extends BaseModule {
      * @returns Promise
      */
     deletePool(clusterId: string, poolName: string): Promise<any>;
+    /**
+     * Get all Databases of a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @returns Promise
+     */
+    getAllDatabases(clusterId: string): Promise<any>;
+    /**
+     * Create a new Database on a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @param dbName the database name
+     * @returns Promise
+     */
+    addDatabase(clusterId: string, dbName: string): Promise<any>;
+    /**
+     * Get a Database from a existing Database Cluster
+     * @param clusterId the identifier of the Cluster
+     * @param dbName the name of the Database
+     * @returns Promise
+     */
+    getDatabase(clusterId: string, dbName: string): Promise<any>;
+    /**
+     * Delete a Database from a existing Database Cluster
+     * @param clusterId the identifier of the Database Cluster
+     * @param dbName the name of the Database to delete
+     */
+    deleteDatabase(clusterId: string, dbName: string): Promise<any>;
 }
